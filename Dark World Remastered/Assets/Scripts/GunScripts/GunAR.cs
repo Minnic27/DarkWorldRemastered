@@ -1,9 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Photon.Pun;
 
-public class GunAR : MonoBehaviourPunCallbacks
+
+public class GunAR : MonoBehaviour
 {
     public int damage = 20;
     private float range = 100f;
@@ -20,14 +20,6 @@ public class GunAR : MonoBehaviourPunCallbacks
     public PlayerController playerScript;
     private GameUI uiScript;
 
-    PhotonView PV;
-
-    void Awake()
-    {
-        PV = GetComponent<PhotonView>();
-    }
-
-
     void Start()
     {
         uiScript = GameObject.FindObjectOfType<GameUI>();
@@ -38,8 +30,6 @@ public class GunAR : MonoBehaviourPunCallbacks
     // Update is called once per frame
     void Update()
     {
-        if(!PV.IsMine)
-            return;
 
         if(Input.GetButton("Fire1") && Time.time >= nextTimeToFire)
         {
@@ -53,8 +43,7 @@ public class GunAR : MonoBehaviourPunCallbacks
                 }
                 else
                 {
-                    //Shoot();
-                    photonView.RPC("Shoot", RpcTarget.All);
+                    Shoot();
                 }
                 
             }
@@ -62,7 +51,7 @@ public class GunAR : MonoBehaviourPunCallbacks
 
         GunReload();
     }
-    [PunRPC]
+
     void Shoot()
     {
         muzzleFlash.Play();

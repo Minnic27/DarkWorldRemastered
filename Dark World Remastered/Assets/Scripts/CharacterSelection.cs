@@ -9,12 +9,6 @@ public class CharacterSelection : MonoBehaviour
     private int selectedCharacter = 0;
 
     public static string charName = "Kyrilios";
-    public PlayerManager pmScript;
-
-    void Start()
-    {
-        pmScript = GameObject.FindObjectOfType<PlayerManager>();
-    }
 
     public void NextCharacter()
     {
