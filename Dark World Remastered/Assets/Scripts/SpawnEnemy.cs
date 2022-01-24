@@ -12,22 +12,12 @@ public class SpawnEnemy : MonoBehaviour
     private int spawnTime;
     private bool stop;
 
-    PhotonView PV;
-    
-    void Awake()
-    {
-        PV = GetComponent<PhotonView>();
-    }
 
     void Start()
     {
         spawnTime = Random.Range(3, 5);
 
-        if(PV.IsMine)
-        {
-            StartCoroutine(SpawnToLocation());
-        }
-        
+        StartCoroutine(SpawnToLocation());        
     }
 
 
@@ -36,8 +26,7 @@ public class SpawnEnemy : MonoBehaviour
         while (!stop)
         {
             yield return new WaitForSeconds(spawnTime);
-            //Instantiate(enemy, spawnPoint.position, spawnPoint.rotation);
-            PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "Aswang"), spawnPoint.position, spawnPoint.rotation);
+            Instantiate(enemy, spawnPoint.position, spawnPoint.rotation);
         }
         
     }

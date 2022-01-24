@@ -1,14 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.IO;
+using UnityEngine.SceneManagement;
 
 public class CharacterSelection : MonoBehaviour
 {
     public GameObject[] characters;
-    private int selectedCharacter = 0;
-
-    public static string charName = "Kyrilios";
+    public int selectedCharacter = 0;
 
     public void NextCharacter()
     {
@@ -28,8 +26,9 @@ public class CharacterSelection : MonoBehaviour
         characters[selectedCharacter].SetActive(true);
     }
 
-    public void SelectCharacter()
+    public void StartGame()
     {
-        charName = characters[selectedCharacter].name;
+        PlayerPrefs.SetInt("selectedCharacter", selectedCharacter);
+        SceneManager.LoadScene(1, LoadSceneMode.Single);
     }
 }
