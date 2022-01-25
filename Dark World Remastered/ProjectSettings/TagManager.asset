@@ -10,6 +10,7 @@ TagManager:
   - Punch
   - spawnpoint
   - PlayerManager
+  - AmmoPowerup
   layers:
   - Default
   - TransparentFX

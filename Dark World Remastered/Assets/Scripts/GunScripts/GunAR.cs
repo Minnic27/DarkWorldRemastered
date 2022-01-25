@@ -20,6 +20,8 @@ public class GunAR : MonoBehaviour
     public PlayerController playerScript;
     private GameUI uiScript;
 
+    public bool infinitebullet = false;
+
     void Start()
     {
         uiScript = GameObject.FindObjectOfType<GameUI>();
@@ -43,7 +45,15 @@ public class GunAR : MonoBehaviour
                 }
                 else
                 {
-                    Shoot();
+                    if(infinitebullet == true)
+                    {
+                        InfiniteAmmo();
+                    }
+                    else
+                    {
+                        Shoot();
+                    }
+                    
                 }
                 
             }
@@ -84,4 +94,26 @@ public class GunAR : MonoBehaviour
             SoundManager.PlaySound("Reload");
         }
     }
+
+    void InfiniteAmmo()
+    {
+        muzzleFlash.Play();
+        SoundManager.PlaySound("AR1");
+        RaycastHit hit;
+        
+        if(Physics.Raycast(tpsCam.transform.position, tpsCam.transform.forward, out hit, range))
+        {
+            Debug.Log(hit.transform.name);
+
+            EnemyBehavior target = hit.transform.GetComponent<EnemyBehavior>();
+            if(target != null)
+            {
+                target.TakeDamage(damage);
+            }
+        }
+
+        GameObject bulletImpact = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
+        Destroy(bulletImpact, 0.5f);
+    }
+
 }
