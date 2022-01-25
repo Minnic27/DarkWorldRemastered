@@ -6,6 +6,7 @@ public class LoadCharacter : MonoBehaviour
 {
     public GameObject[] characterPrefabs;
     public Transform[] spawnPoints;
+    public GameObject clone;
     
     // Start is called before the first frame update
     void Start()
@@ -13,6 +14,6 @@ public class LoadCharacter : MonoBehaviour
         int selectedCharacter = PlayerPrefs.GetInt("selectedCharacter");
         int spawnIndex = Random.Range(0, spawnPoints.Length);
         GameObject prefab = characterPrefabs[selectedCharacter];
-        GameObject clone = Instantiate(prefab, spawnPoints[spawnIndex].position, Quaternion.identity);
+        clone = Instantiate(prefab, spawnPoints[spawnIndex].position, Quaternion.identity);
     }
 }

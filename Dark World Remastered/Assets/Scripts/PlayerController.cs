@@ -18,6 +18,13 @@ public class PlayerController : MonoBehaviour
     private bool isIlluminated;
     public bool isRunning = false;
 
+    private GunAR arScript;
+    private GunSMG smgScript;
+    private GunSG sgScript;
+    private GunPistol pistolScript;
+
+    private LoadCharacter loadScript;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,10 +32,13 @@ public class PlayerController : MonoBehaviour
         soundScript = GameObject.FindObjectOfType<SoundManager>();
         playerController = GetComponent<CharacterController>();
 
-        // if(!PV.IsMine)
-        // {
-        //     Destroy(GetComponentInChildren<Camera>().gameObject);
-        // }
+        arScript = GameObject.FindObjectOfType<GunAR>();
+        smgScript = GameObject.FindObjectOfType<GunSMG>();
+        sgScript = GameObject.FindObjectOfType<GunSG>();
+        pistolScript = GameObject.FindObjectOfType<GunPistol>();
+
+        loadScript = GameObject.FindObjectOfType<LoadCharacter>();
+
     }
 
     private void OnTriggerEnter(Collider other)
@@ -37,6 +47,60 @@ public class PlayerController : MonoBehaviour
         {
             uiScript.DecreaseHealth();
         }
+
+        if (other.gameObject.tag == "AmmoPowerup")
+        {
+            Debug.Log("Infinite Ammo");
+            other.GetComponent<MeshRenderer>().enabled = false;
+            other.GetComponent<Collider>().enabled = false;
+
+            StartCoroutine(PowerupEffect());
+
+            Destroy(other.gameObject);
+
+        }
+    }
+
+    IEnumerator PowerupEffect()
+    {
+        if(loadScript.clone.name == "Dom(Clone)")
+        {
+            arScript.infinitebullet = true;
+        }
+        else if(loadScript.clone.name == "Kyrilios(Clone)")
+        {
+            smgScript.infinitebullet = true;
+        }
+        else if(loadScript.clone.name == "Bezalel(Clone)")
+        {
+            sgScript.infinitebullet = true;
+        }
+        else if(loadScript.clone.name == "Krung(Clone)")
+        {
+            pistolScript.infinitebullet = true;
+        }
+
+        yield return new WaitForSeconds(5f);
+
+        Debug.Log("Infinite Ammo Expired!");
+
+        if(loadScript.clone.name == "Dom(Clone)")
+        {
+            arScript.infinitebullet = false;
+        }
+        else if(loadScript.clone.name == "Kyrilios(Clone)")
+        {
+            smgScript.infinitebullet = false;
+        }
+        else if(loadScript.clone.name == "Bezalel(Clone)")
+        {
+            sgScript.infinitebullet = false;
+        }
+        else if(loadScript.clone.name == "Krung(Clone)")
+        {
+            pistolScript.infinitebullet = false;
+        }
+        
     }
 
     // Update is called once per frame

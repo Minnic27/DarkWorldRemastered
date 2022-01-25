@@ -20,6 +20,8 @@ public class GunPistol : MonoBehaviour
     public PlayerController playerScript;
     private GameUI uiScript;
 
+    public bool infinitebullet = false;
+
     void Start()
     {
         uiScript = GameObject.FindObjectOfType<GameUI>();
@@ -42,7 +44,14 @@ public class GunPistol : MonoBehaviour
                 }
                 else
                 {
-                    Shoot();
+                   if(infinitebullet == true)
+                    {
+                        InfiniteAmmo();
+                    }
+                    else
+                    {
+                        Shoot();
+                    }
                 }
             }
         }
@@ -81,5 +90,26 @@ public class GunPistol : MonoBehaviour
             uiScript.ammoUI.text = ammo + "/10";
             SoundManager.PlaySound("Reload");
         }
+    }
+
+    void InfiniteAmmo()
+    {
+        muzzleFlash.Play();
+        SoundManager.PlaySound("Deagle");
+        RaycastHit hit;
+        
+        if(Physics.Raycast(tpsCam.transform.position, tpsCam.transform.forward, out hit, range))
+        {
+            Debug.Log(hit.transform.name);
+
+            EnemyBehavior target = hit.transform.GetComponent<EnemyBehavior>();
+            if(target != null)
+            {
+                target.TakeDamage(damage);
+            }
+        }
+
+        GameObject bulletImpact = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
+        Destroy(bulletImpact, 0.5f);
     }
 }

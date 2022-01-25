@@ -775,6 +775,8 @@ MonoBehaviour:
   anim: {fileID: 7254314994123901232}
   flashlight: {fileID: 8563792221309447163}
   isRunning: 0
+  arScript: {fileID: 0}
+  pistolScript: {fileID: 0}
 --- !u!114 &4109391127642507761
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2220,6 +2222,7 @@ MonoBehaviour:
   impactEffect: {fileID: 5383390966512558474, guid: 822308c7e41813042be86ee5a1f0f3f8, type: 3}
   tpsCam: {fileID: 8563792222518935904}
   playerScript: {fileID: 4109391127642507762}
+  infinitebullet: 0
 --- !u!114 &9043412330862578271
 MonoBehaviour:
   m_ObjectHideFlags: 0
