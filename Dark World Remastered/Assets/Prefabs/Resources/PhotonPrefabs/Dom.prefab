@@ -693,10 +693,6 @@ GameObject:
   - component: {fileID: 7254314994123901232}
   - component: {fileID: 4109391127642507763}
   - component: {fileID: 4109391127642507762}
-  - component: {fileID: 4109391127642507761}
-  - component: {fileID: 5787191554400333784}
-  - component: {fileID: 3363169378008834334}
-  - component: {fileID: 4748774145715225603}
   m_Layer: 0
   m_Name: Dom
   m_TagString: Player

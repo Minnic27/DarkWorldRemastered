@@ -2359,10 +2359,6 @@ GameObject:
   - component: {fileID: 2467373687298265103}
   - component: {fileID: 9193574393962467522}
   - component: {fileID: 9193574393962467533}
-  - component: {fileID: 9193574393962467532}
-  - component: {fileID: -1253948422303452193}
-  - component: {fileID: -7988527030397301337}
-  - component: {fileID: -7581291053948498826}
   m_Layer: 0
   m_Name: Krung
   m_TagString: Player
@@ -2441,94 +2437,6 @@ MonoBehaviour:
   anim: {fileID: 2467373687298265103}
   flashlight: {fileID: 7626186006568010676}
   isRunning: 0
---- !u!114 &9193574393962467532
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9193574393962467535}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ObservedComponentsFoldoutOpen: 1
-  Group: 0
-  prefixField: -1
-  Synchronization: 3
-  OwnershipTransfer: 0
-  observableSearch: 2
-  ObservedComponents:
-  - {fileID: -1253948422303452193}
-  - {fileID: -7988527030397301337}
-  sceneViewId: 0
-  InstantiationId: 0
-  isRuntimeInstantiated: 0
---- !u!114 &-1253948422303452193
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9193574393962467535}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ShowLayerWeightsInspector: 1
-  ShowParameterInspector: 1
-  m_SynchronizeParameters:
-  - Type: 1
-    SynchronizeType: 2
-    Name: Movement
-  - Type: 3
-    SynchronizeType: 2
-    Name: Strafe
-  m_SynchronizeLayers:
-  - SynchronizeType: 2
-    LayerIndex: 0
---- !u!114 &-7988527030397301337
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9193574393962467535}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SynchronizePosition: 1
-  m_SynchronizeRotation: 1
-  m_SynchronizeScale: 0
-  m_UseLocal: 1
---- !u!114 &-7581291053948498826
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9193574393962467535}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ObservedComponentsFoldoutOpen: 1
-  Group: 0
-  prefixField: -1
-  Synchronization: 3
-  OwnershipTransfer: 0
-  observableSearch: 2
-  ObservedComponents:
-  - {fileID: -1253948422303452193}
-  - {fileID: -7988527030397301337}
-  sceneViewId: 0
-  InstantiationId: 0
-  isRuntimeInstantiated: 0
 --- !u!1001 &7626186007934059637
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2637,13 +2545,13 @@ PrefabInstance:
     - {fileID: 1546925832087079893, guid: dd0e6b4f38dc8214991307ac68093f3a, type: 3}
     - {fileID: 5549872267523742979, guid: dd0e6b4f38dc8214991307ac68093f3a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: dd0e6b4f38dc8214991307ac68093f3a, type: 3}
---- !u!198 &4268397479589641521 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 5974520924281125188, guid: dd0e6b4f38dc8214991307ac68093f3a, type: 3}
-  m_PrefabInstance: {fileID: 7626186007934059637}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4268397479589641523 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5974520924281125190, guid: dd0e6b4f38dc8214991307ac68093f3a, type: 3}
+  m_PrefabInstance: {fileID: 7626186007934059637}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &4268397479589641521 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 5974520924281125188, guid: dd0e6b4f38dc8214991307ac68093f3a, type: 3}
   m_PrefabInstance: {fileID: 7626186007934059637}
   m_PrefabAsset: {fileID: 0}
