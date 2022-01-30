@@ -6,12 +6,19 @@ using System.IO;
 
 public class CharacterSelection : MonoBehaviour
 {
+    //Character Selection
     public GameObject[] panels;
     public GameObject[] characters;
     public int selectedCharacter = 0;
     public int panelCount = 0;
 
+    //MapSelection
+    public GameObject[] mapnames;
+    public GameObject[] maps;
+    public int mapNameCount = 0;
+    public int mapCount = 0;
 
+    //Character Selection
     public static string charName = "Kyrilios";
 
     public void NextCharacter()
@@ -48,6 +55,43 @@ public class CharacterSelection : MonoBehaviour
             panelCount += panels.Length;
         }
         panels[panelCount].SetActive(true);
+    }
+
+    //MapSelection
+    public void NextMapName()
+    {
+        mapnames[mapNameCount].SetActive(false);
+        mapNameCount = (mapNameCount + 1) % mapnames.Length;
+        mapnames[mapNameCount].SetActive(true);
+    }
+
+    public void PreviousMapName()
+    {
+        mapnames[mapNameCount].SetActive(false);
+        mapNameCount--;
+        if(mapNameCount < 0)
+        {
+            mapNameCount += mapnames.Length;
+        }
+        mapnames[mapNameCount].SetActive(true);
+    }
+
+    public void NextMap()
+    {
+        maps[mapCount].SetActive(false);
+        mapCount = (mapCount + 1) % maps.Length;
+        maps[mapCount].SetActive(true);
+    }
+
+    public void PreviousMap()
+    {
+        maps[mapCount].SetActive(false);
+        mapCount--;
+        if(mapCount < 0)
+        {
+            mapCount += maps.Length;
+        }
+        maps[mapCount].SetActive(true);
     }
 
     public void SelectCharacter()
