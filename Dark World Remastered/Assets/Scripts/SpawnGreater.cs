@@ -14,7 +14,6 @@ public class SpawnGreater : MonoBehaviour
     void Start()
     {
         spawnTime = Random.Range(30, 50);
-
         StartCoroutine(SpawnToLocation());        
     }
 

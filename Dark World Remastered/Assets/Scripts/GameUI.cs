@@ -11,6 +11,8 @@ public class GameUI : MonoBehaviour
     public int playerHealth = 100;
     public Text timerUI;
 
+    public float t;
+
     private float startTime;
     private string minutes;
     private string seconds;
@@ -42,7 +44,7 @@ public class GameUI : MonoBehaviour
 
     public void UpdateTime()
     {
-        float t = Time.time - startTime;
+        t = Time.time - startTime;
 
         minutes = ((int) t / 60).ToString();
         seconds  = (t % 60).ToString("f1");

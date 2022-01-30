@@ -5,11 +5,11 @@ using UnityEngine.AI;
 
 public class GreaterDemonBehavior : MonoBehaviour
 {
-    private int health = 500;
+    private int health = 300;
     public NavMeshAgent enemy;
     public GameObject[] players;
     public Animator anim;
-    private float stoppingDistance = 1.8f;
+    private float stoppingDistance = 4f;
     private bool isAttacking = false;
 
     private GameUI uiScript;

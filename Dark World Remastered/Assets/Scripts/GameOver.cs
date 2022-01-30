@@ -20,10 +20,6 @@ public class GameOver : MonoBehaviour
 
     public void LeaveRoom()
     {
-        //PhotonNetwork.LeaveRoom();
-        //SceneManager.LoadScene("MainMenu");
-        //MenuManager.Instance.OpenMenu("loading");
-
-        Application.Quit();
+        SceneManager.LoadScene("MainMenu");
     }
 }

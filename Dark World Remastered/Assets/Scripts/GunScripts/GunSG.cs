@@ -70,9 +70,20 @@ public class GunSG : MonoBehaviour
             Debug.Log(hit.transform.name);
 
             EnemyBehavior target = hit.transform.GetComponent<EnemyBehavior>();
+            GreaterDemonBehavior target2 = hit.transform.GetComponent<GreaterDemonBehavior>();
+            AswangBehavior target3 = hit.transform.GetComponent<AswangBehavior>();
+
             if(target != null)
             {
                 target.TakeDamage(damage);
+            }
+            else if(target2 != null)
+            {
+                target2.TakeDamage(damage);
+            }
+            else if(target3 != null)
+            {
+                target3.TakeDamage(damage);
             }
         }
 
