@@ -19,13 +19,16 @@ public class CharacterSelection : MonoBehaviour
     public int mapCount = 0;
 
     //Character Selection
-    public static string charName = "Kyrilios";
+    public static string charName;
+    public static string mapName = "Neighborhood";
 
     public void NextCharacter()
     {
         characters[selectedCharacter].SetActive(false);
         selectedCharacter = (selectedCharacter + 1) % characters.Length;
         characters[selectedCharacter].SetActive(true);
+        charName = characters[selectedCharacter].name;
+        //Debug.Log(characters[selectedCharacter]);
     }
 
     public void PreviousCharacter()
@@ -37,6 +40,8 @@ public class CharacterSelection : MonoBehaviour
             selectedCharacter += characters.Length;
         }
         characters[selectedCharacter].SetActive(true);
+        charName = characters[selectedCharacter].name;
+        //Debug.Log(characters[selectedCharacter]);
     }
 
     public void NextPanel()
@@ -81,6 +86,7 @@ public class CharacterSelection : MonoBehaviour
         maps[mapCount].SetActive(false);
         mapCount = (mapCount + 1) % maps.Length;
         maps[mapCount].SetActive(true);
+        mapName = maps[mapCount].name;
     }
 
     public void PreviousMap()
@@ -92,17 +98,13 @@ public class CharacterSelection : MonoBehaviour
             mapCount += maps.Length;
         }
         maps[mapCount].SetActive(true);
-    }
-
-    public void SelectCharacter()
-    {
-        charName = characters[selectedCharacter].name;
+        mapName = maps[mapCount].name;
     }
 
     public void StartGame()
     {
         PlayerPrefs.SetInt("selectedCharacter", selectedCharacter);
-        SceneManager.LoadScene(1, LoadSceneMode.Single);
+        SceneManager.LoadScene(mapName, LoadSceneMode.Single);
     }
 
 }

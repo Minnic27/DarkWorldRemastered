@@ -11,9 +11,9 @@ public class LoadCharacter : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        int selectedCharacter = PlayerPrefs.GetInt("selectedCharacter");
+        int characterLoad = PlayerPrefs.GetInt("selectedCharacter");
         int spawnIndex = Random.Range(0, spawnPoints.Length);
-        GameObject prefab = characterPrefabs[selectedCharacter];
+        GameObject prefab = characterPrefabs[characterLoad];
         clone = Instantiate(prefab, spawnPoints[spawnIndex].position, Quaternion.identity);
     }
 }
